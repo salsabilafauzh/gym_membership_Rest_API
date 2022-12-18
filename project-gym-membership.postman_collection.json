@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "993bdd5a-71e9-44dc-9dbb-34db64ce67b2",
+		"name": "project-gym-membership",
+		"description": "REST API dengan data membership berlangganan gym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23581980"
+	},
+	"item": [
+		{
+			"name": "membership end",
+			"item": [
+				{
+					"name": "GET membership end",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/gym-member/end_membership/2022-12-19",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"gym-member",
+								"end_membership",
+								"2022-12-19"
+							]
+						},
+						"description": "**menampilkan data membership berdasarkan tanggal berakhir**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil menampilkan list data membership\n    - Code: 404\n        - **Deskripsi:** parameter tanggal berakhir tidak ditemukan pada list"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE membeship end",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/gym-member/end_membership/2022-12-19",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"gym-member",
+								"end_membership",
+								"2022-12-19"
+							]
+						},
+						"description": "**menghapus data membership berdasarkan tanggal berakhir**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil menghapus list data membership\n    - Code: 404\n        - **Deskripsi:** parameter tanggal berakhir tidak ditemukan pada list"
+					},
+					"response": []
+				}
+			],
+			"description": "**melakukan sinkronisasi data dengan menghapus data yang telah lewat tenggat yang diberikan**\n\n**params:** tanggal berakhir (date_end)\n\n**return:** list membership with expired date"
+		},
+		{
+			"name": "CREATE new membership",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"amanda aurel\",\r\n    \"sex\": \"female\",\r\n    \"age\": 24,\r\n    \"date_since\": \"2022-08-20\",\r\n    \"date_end\": \"2022-10-20\",\r\n    \"type_membership\": \"platinum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/gym-member",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"gym-member"
+					]
+				},
+				"description": "**memasukan data membership baru**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil membuat membership baru\n    - Code: 400\n        - **Deskripsi:** gagal membuat membership baru."
+			},
+			"response": []
+		},
+		{
+			"name": "GET all membership",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/gym-member",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"gym-member"
+					]
+				},
+				"description": "**melihat seluruh gym user membership**\n\n- **Success Response:**\n- **Code:** 200  \n    **Deskripsi:** Berhasil memperoleh llist membership gym.\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE data gym user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 7,\r\n    \"name\": \"amanda aurel\",\r\n    \"sex\": \"female\",\r\n    \"age\": 24,\r\n    \"date_since\": \"2022-08-15\",\r\n    \"date_end\": \"2022-10-15\",\r\n    \"type_membership\": \"platinum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/gym-member",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"gym-member"
+					]
+				},
+				"description": "**memperbaharui data membership baru**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil memperbarui data membership\n    - Code: 404\n        - **Deskripsi:** parameter id tidak ditemukan pada list"
+			},
+			"response": []
+		},
+		{
+			"name": "GET spesific member",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/gym-member/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"gym-member",
+						"2"
+					]
+				},
+				"description": "**menampilkan data spesifik membership dengan id gym user**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil menampilkan data\n    - Code: 404\n        - **Deskripsi:** parameter id tidak ditemukan pada list"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE membership",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/gym-member/6",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"gym-member",
+						"6"
+					]
+				},
+				"description": "**menghapus data membership dengan id user gym**\n\n- **Request Headers**  \n    \\*_Required:__\\*_`Accept='application/json'`\n    \n\n- **Success Response:**\n    - **Code:** 200\n        - **Deskripsi:** Berhasil menghapus data membership\n    - Code: 404\n        - **Deskripsi:** parameter id tidak ditemukan pada list"
+			},
+			"response": []
+		}
+	]
+}
