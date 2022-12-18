@@ -16,7 +16,7 @@ DB_PASSWORD=
 DB_NAME=
 ```
 
-## Selanjutnya, jalankan perintah berikut:
+## Migration database:
 melakukan migration tabel dalam API yaitu tabel gym_membership
 ```js
 $ knex migrate:up
